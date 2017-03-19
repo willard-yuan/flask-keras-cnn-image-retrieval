@@ -21,5 +21,9 @@ keras为最新的2.0.1版本
 └── README.md
 ```
 
+### 更新
+
+- 针对近期有小伙伴反映的keras版本的问题，已将其进行到最新版本，并且特征提取代码大幅精简。
+
 ### Goal
 重新用flask写CNN-Web-Demo-for-Image-Retrieval，并使用keras使它支持在线上传功能。
