@@ -1,4 +1,4 @@
-# image retrieval engine based on Keras
+# Image Retrieval Engine Based on Keras
 
 ## 环境
 
