@@ -9,6 +9,15 @@ import os
 import h5py
 import numpy as np
 from numpy import linalg as LA
+import argparse
+
+ap = argparse.ArgumentParser()
+ap.add_argument("-database", required = True,
+	help = "Path to database which contains images to be indexed")
+ap.add_argument("-index", required = True,
+	help = "Path to where the computed index will be stored")
+args = vars(ap.parse_args())
+
 
 
 def get_imlist(path):
@@ -26,8 +35,11 @@ if __name__ == "__main__":
     # input_shape: (width, height, 3), width and height should >= 48
     model = VGG16(weights = 'imagenet', input_shape = (input_shape[0], input_shape[1], 3), pooling = 'max', include_top = False)
 
-    db = "database"
+    db = args["database"]
     img_list = get_imlist(db)
+    print "--------------------------------------------------"
+    print "         feature extraction starts"
+    print "--------------------------------------------------"
     
     feats = []
     names = []
@@ -42,10 +54,16 @@ if __name__ == "__main__":
         norm_feat = feat[0]/LA.norm(feat[0])
         feats.append(norm_feat)
         names.append(img_name)
-        print "image %d feature extraction, total %d images" %((i+1), len(img_list))
+        print "extracting image %d feature ... total %d images" %((i+1), len(img_list))
 
     feats = np.array(feats)
-    h5f = h5py.File('featsCNN.h5', 'w')
+    # directory for storing extracted features
+    featdir = args["index"] + "/features.h5"
+    print "--------------------------------------------------"
+    print "      writing feature extraction results ..."
+    print "--------------------------------------------------"
+    #h5f = h5py.File('featsCNN.h5', 'w')
+    h5f = h5py.File(featdir, 'w')
     h5f.create_dataset('dataset_1', data = feats)
     h5f.create_dataset('dataset_2', data = names)
     h5f.close()

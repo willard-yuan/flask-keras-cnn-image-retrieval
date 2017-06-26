@@ -5,14 +5,13 @@
 ```python
 In [1]: import keras
 Using Theano backend.
-
-In [2]: print keras.__version__
-2.0.1
 ```
 
-keras为最新的2.0.1版本
+keras 2.0.1 及 2.0.5 版本均经过测试可用。
 
 ### 使用
+
+python extract.py -database <path-to-dataset> -index <path-for-extracted-feature>
 
 ```sh
 ├── database 图像数据集
