@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+# Author: yongyuan.name
+
 import numpy as np
 from numpy import linalg as LA
 

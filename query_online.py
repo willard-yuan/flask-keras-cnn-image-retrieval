@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 # Author: yongyuan.name
-from extract import extract_feat 
+from extract_cnn_vgg16_keras import extract_feat
 
 import numpy as np
 import h5py
@@ -26,7 +26,10 @@ feats = h5f['dataset_1'][:]
 imgNames = h5f['dataset_2'][:]
 h5f.close()
         
-
+print "--------------------------------------------------"
+print "               searching starts"
+print "--------------------------------------------------"
+    
 # read and show query image
 queryDir = args["query"]
 queryImg = mpimg.imread(queryDir)
@@ -38,18 +41,16 @@ plt.show()
 # extract query image's feature, compute simlarity score and sort
 queryVec = extract_feat(queryDir)
 scores = np.dot(queryVec, feats.T)
-print "scores: ",scores
 rank_ID = np.argsort(scores)[::-1]
-print "rank_ID: ",rank_ID
 rank_score = scores[rank_ID]
 #print rank_ID
 #print rank_score
 
 
 # number of top retrieved images to show
-maxres = 6
+maxres = 3
 imlist = [imgNames[index] for i,index in enumerate(rank_ID[0:maxres])]
-print "imlist: ",imlist
+print "top %d images in order are: " %maxres, imlist
  
 
 # show top #maxres retrieved result one by one

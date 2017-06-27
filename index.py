@@ -5,7 +5,7 @@ import h5py
 import numpy as np
 import argparse
 
-from extract import extract_feat
+from extract_cnn_vgg16_keras import extract_feat
 
 
 ap = argparse.ArgumentParser()
@@ -23,7 +23,9 @@ def get_imlist(path):
     return [os.path.join(path,f) for f in os.listdir(path) if f.endswith('.jpg')]
 
 
-
+'''
+ Extract features and index the images
+'''
 if __name__ == "__main__":
 
     db = args["database"]
@@ -41,7 +43,7 @@ if __name__ == "__main__":
         img_name = os.path.split(img_path)[1]
         feats.append(norm_feat)
         names.append(img_name)
-        print "extracting image %d feature ... total %d images" %((i+1), len(img_list))
+        print "extracting feature from image No. %d , %d images in total" %((i+1), len(img_list))
 
     feats = np.array(feats)
     # directory for storing extracted features
