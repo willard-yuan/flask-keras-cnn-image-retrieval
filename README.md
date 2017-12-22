@@ -7,7 +7,7 @@ In [1]: import keras
 Using Theano backend.
 ```
 
-keras 2.0.1 及 2.0.5 版本均经过测试可用。
+keras 2.0.1 及 2.0.5 版本均经过测试可用。推荐Python 2.7，Python 3.x的未经过测试。
 
 此外需要numpy, matplotlib, os, h5py, argparse. 推荐使用anaconda安装
 
