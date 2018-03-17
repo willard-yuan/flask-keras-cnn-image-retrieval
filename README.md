@@ -46,4 +46,9 @@ python query_online.py -query database/001_accordion_image_0001.jpg -index featu
 - 显示检索得到的图片， 可自由定义查询图片及检索图片集
 
 ### Goal
+
 重新用flask写CNN-Web-Demo-for-Image-Retrieval，并使用keras使它支持在线上传功能。
+
+### 论文推荐
+
+[**awesome-cbir-papers**](https://github.com/willard-yuan/awesome-cbir-papers)
