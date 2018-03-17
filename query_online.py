@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 # Author: yongyuan.name
-from extract_cnn_vgg16_keras import extract_feat
+from extract_cnn_vgg16_keras import VGGNet
 
 import numpy as np
 import h5py
@@ -12,7 +12,7 @@ import argparse
 
 ap = argparse.ArgumentParser()
 ap.add_argument("-query", required = True,
-	help = "Path to database which contains images to be indexed")
+	help = "Path to query which contains image to be queried")
 ap.add_argument("-index", required = True,
 	help = "Path to index")
 ap.add_argument("-result", required = True,
@@ -37,9 +37,11 @@ plt.title("Query Image")
 plt.imshow(queryImg)
 plt.show()
 
+# init VGGNet16 model
+model = VGGNet()
 
 # extract query image's feature, compute simlarity score and sort
-queryVec = extract_feat(queryDir)
+queryVec = model.extract_feat(queryDir)
 scores = np.dot(queryVec, feats.T)
 rank_ID = np.argsort(scores)[::-1]
 rank_score = scores[rank_ID]
