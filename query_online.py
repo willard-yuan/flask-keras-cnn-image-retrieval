@@ -19,10 +19,9 @@ ap.add_argument("-result", required=True,
 args = vars(ap.parse_args())
 
 # read in indexed images' feature vectors and corresponding image names
-h5f = h5py.File(args["index"], 'r')
-feats = h5f['dataset_1'][:]
-imgNames = h5f['dataset_2'][:]
-h5f.close()
+with h5py.File(args["index"], 'r') as h5f:
+    feats = h5f['dataset_1'][:]
+    imgNames = h5f['dataset_2'][:]
 
 print("--------------------------------------------------")
 print("               searching starts")
