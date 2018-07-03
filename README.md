@@ -1,5 +1,9 @@
 # Image Retrieval Engine Based on Keras
 
+## 演示
+
+[演示地址](http://202.120.39.161:55555/)，跑在CPU上，web界面采用的[SoTu](https://github.com/willard-yuan/SoTu)
+
 ## 环境
 
 ```python
@@ -47,7 +51,7 @@ python query_online.py -query database/001_accordion_image_0001.jpg -index featu
 
 ### Goal
 
-重新用flask写CNN-Web-Demo-for-Image-Retrieval，并使用keras使它支持在线上传功能。
+- [x] 重新用flask写web界面，已完成。
 
 ### 论文推荐
 
