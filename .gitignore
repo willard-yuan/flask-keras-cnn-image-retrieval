@@ -1,0 +1,13 @@
+.svn/
+*.log
+*.class
+*.out
+*.jar
+*.pyc
+*.idea/*
+*/.idea/*
+./env/*
+env/
+./venv/*
+venv/
+*.h5
