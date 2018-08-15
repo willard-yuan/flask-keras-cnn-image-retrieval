@@ -31,9 +31,9 @@ if __name__ == "__main__":
     db = args["database"]
     img_list = get_imlist(db)
     
-    print "--------------------------------------------------"
-    print "         feature extraction starts"
-    print "--------------------------------------------------"
+    print("--------------------------------------------------")
+    print("         feature extraction starts")
+    print("--------------------------------------------------")
     
     feats = []
     names = []
@@ -44,17 +44,20 @@ if __name__ == "__main__":
         img_name = os.path.split(img_path)[1]
         feats.append(norm_feat)
         names.append(img_name)
-        print "extracting feature from image No. %d , %d images in total" %((i+1), len(img_list))
+        print("extracting feature from image No. %d , %d images in total" %((i+1), len(img_list)))
 
     feats = np.array(feats)
+    # print(feats)
     # directory for storing extracted features
     output = args["index"]
     
-    print "--------------------------------------------------"
-    print "      writing feature extraction results ..."
-    print "--------------------------------------------------"
-    
+    print("--------------------------------------------------")
+    print("      writing feature extraction results ...")
+    print("--------------------------------------------------")
+
+
     h5f = h5py.File(output, 'w')
     h5f.create_dataset('dataset_1', data = feats)
-    h5f.create_dataset('dataset_2', data = names)
+    # h5f.create_dataset('dataset_2', data = names)
+    h5f.create_dataset('dataset_2', data = np.string_(names))
     h5f.close()
