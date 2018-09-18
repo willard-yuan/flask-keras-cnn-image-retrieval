@@ -22,13 +22,16 @@ args = vars(ap.parse_args())
 
 # read in indexed images' feature vectors and corresponding image names
 h5f = h5py.File(args["index"],'r')
+# feats = h5f['dataset_1'][:]
 feats = h5f['dataset_1'][:]
+print(feats)
 imgNames = h5f['dataset_2'][:]
+print(imgNames)
 h5f.close()
         
-print "--------------------------------------------------"
-print "               searching starts"
-print "--------------------------------------------------"
+print("--------------------------------------------------")
+print("               searching starts")
+print("--------------------------------------------------")
     
 # read and show query image
 queryDir = args["query"]
@@ -52,12 +55,11 @@ rank_score = scores[rank_ID]
 # number of top retrieved images to show
 maxres = 3
 imlist = [imgNames[index] for i,index in enumerate(rank_ID[0:maxres])]
-print "top %d images in order are: " %maxres, imlist
- 
+print("top %d images in order are: " %maxres, imlist)
 
 # show top #maxres retrieved result one by one
 for i,im in enumerate(imlist):
-    image = mpimg.imread(args["result"]+"/"+im)
+    image = mpimg.imread(args["result"]+"/"+str(im, 'utf-8'))
     plt.title("search output %d" %(i+1))
     plt.imshow(image)
     plt.show()
