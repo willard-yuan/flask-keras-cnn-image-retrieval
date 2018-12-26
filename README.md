@@ -58,3 +58,7 @@ python query_online.py -query database/001_accordion_image_0001.jpg -index featu
 ### 论文推荐
 
 [**awesome-cbir-papers**](https://github.com/willard-yuan/awesome-cbir-papers)
+
+### 问题汇总
+
+- `query_online.py` line 28报错，将`index.py` line 62注释，使用line 61.
