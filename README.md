@@ -1,5 +1,7 @@
 # Image Retrieval Engine Based on Keras
 
+[![License](https://img.shields.io/badge/license-BSD-blue.svg)](../LICENSE)
+
 ## 演示
 
 [演示地址](http://202.120.39.161:55555/)(不能访问，没钱续VPS了)，跑在CPU上，web界面采用的[SoTu](https://github.com/willard-yuan/SoTu)
