@@ -45,16 +45,6 @@ python index.py -database database -index featureCNN.h5
 python query_online.py -query database/001_accordion_image_0001.jpg -index featureCNN.h5 -result database
 ```
 
-
-### 更新
-
-- 针对近期有小伙伴反映的keras版本的问题，已将其进行到最新版本，并且特征提取代码大幅精简。
-- 显示检索得到的图片， 可自由定义查询图片及检索图片集
-
-### Goal
-
-- [x] 重新用flask写web界面，已完成。
-
 ### 论文推荐
 
 [**awesome-cbir-papers**](https://github.com/willard-yuan/awesome-cbir-papers)
@@ -62,3 +52,9 @@ python query_online.py -query database/001_accordion_image_0001.jpg -index featu
 ### 问题汇总
 
 - `query_online.py` line 28报错，将`index.py` line 62注释，使用line 61.
+
+此外，若在使用过程中出现任何问题，请在赞赏留言中留下您的微信，收到消息后我会尽快修复。
+
+<div align="left">
+  <img width="20%" alt="A small reward is highly appreciated! (#^.^#) Thank you~" src="https://github.com/willard-yuan/willard-yuan.github.io/blob/master/images/payimg/weipayimg.jpg">
+</div>
